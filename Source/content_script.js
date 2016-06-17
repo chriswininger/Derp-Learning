@@ -6,10 +6,27 @@ function walk(node)
 	// http://is.gd/mwZp7E
 	
 	var child, next;
-	
-	if (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'
-	    || node.classList.indexOf('ace_editor') > -1) {
-		return;
+	debugger;
+	var classListChecker = function() { return -1; };
+	if (node.classList && node.classList.indexOf) {
+		classListChecker = function(classList, val) {
+			return classList.indexOf.call(classList, val);
+		};
+	} else if (node.classList && node.classList.contains) {
+		classListChecker = function(classList, val) {
+			if (!classList.contains.call(classList, val)) {
+				return -1;
+			} else {
+				return 0;
+			}
+		};
+	}
+
+	if (node.tagName && node.classList) {
+		if (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'
+	    	|| classListChecker(node.classList, 'ace_editor') > -1) {
+			return;
+		}
 	}
 
 	switch ( node.nodeType )  
