@@ -1,7 +1,5 @@
-deep-derp-ai
+Derp Learning
 =============
-
-![](logo.png)
 
 Chrome extension that replaces occurrences of 'deep learning' with 'derp learning'
 
