@@ -6,7 +6,6 @@ function walk(node)
 	// http://is.gd/mwZp7E
 	
 	var child, next;
-	debugger;
 	var classListChecker = function() { return -1; };
 	if (node.classList && node.classList.indexOf) {
 		classListChecker = function(classList, val) {
