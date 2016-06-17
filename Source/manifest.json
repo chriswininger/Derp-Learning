@@ -3,13 +3,14 @@
 	"name": "Derp Learning",
 	"version": "1.0",
 	"description": "Replaces the text 'deep learning' with 'derp learning'.",
-	"content_scripts": 
+	"content_scripts":
 	[
 		{
 			"matches": ["*://*/*"],
 			"js": ["content_script.js"],
 			"run_at": "document_end"
 		}
-	]
+	],
+	"icons": { "128": "icon.png" }
 }
 
